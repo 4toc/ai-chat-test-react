@@ -2,6 +2,7 @@ import AuthLayout from "@/layouts/AuthLayout.tsx";
 import {LoginPage} from "@/pages/auth/LoginPage.tsx";
 import {RegisterPage} from "@/pages/auth/RegisterPage.tsx";
 import {ChatPage} from "@/pages/ChatPage.tsx";
+import ErrorPage from "@/pages/ErrorPage.tsx";
 import {Navigate} from "react-router-dom";
 import {useAuth} from "@/context/authContext.tsx";
 import {ReactNode} from "react";
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/',
     element: <ProtectedRoute><ChatPage /></ProtectedRoute>
+  },
+  {
+    path: '*',  // Catch-all route for undefined paths
+    element: <ErrorPage />
   }
 ]
 

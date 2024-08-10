@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# AI Chat Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Demo Link
 
-Currently, two official plugins are available:
+[AI Chat Application](https://ai-chat-app.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+For Auth and Database, I used Supabase with Postgres. I created simple NodeJS server in repository
+[ai-chat-test-api]()
+Auth handled by Supabase. I use hook to track auth state and made protected routes.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+You can chat with 5 bots. They are stored in DB and promt to act like a charecter.
+To store data I use Redux Toolkit.
 
-- Configure the top-level `parserOptions` property like this:
+In DB has two tables:
+![img.png](src/img.png)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+In backend I have 3 api routes:
+1. GET `/api/chat/` - get all chatbots and their last message
+2. GET `/api/chat/messages` - get messages for chatbot
+3. POST `/api/chat/messages` - send message and receive response
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Prerequisites
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Node.js (version 21 or later)
+- npm or yarn
+
+## Setup
+
+1. Install dependencies:
+   ```
+   npm install
+   ```
+
+2. Set up environment variables:
+   Create a `.env` file in the root directory and add the following:
+   ```
+   VITE_SUPABASE_URL=[supabase-url]
+   VITE_SUPABASE_ANON_KEY=[supabase-anon-key]
+   
+   VITE_API_URL=[backend-api]
+   ```
+
+3. Start the development server:
+   ```
+   npm run dev
+   ```
+4. Run server

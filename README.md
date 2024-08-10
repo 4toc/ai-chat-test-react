@@ -1,13 +1,14 @@
 # AI Chat Application
 
 ## Demo Link
+Link to test the app:
 
-[AI Chat Application](https://ai-chat-app.vercel.app/)
+[ai-chat-test-react.vercel.app](https://ai-chat-test-react.vercel.app/)
 
 ## Overview
 
 For Auth and Database, I used Supabase with Postgres. I created simple NodeJS server in repository
-[ai-chat-test-api]()
+[ai-chat-test-api](https://github.com/4toc/ai-chat-test-api)
 Auth handled by Supabase. I use hook to track auth state and made protected routes.
 
 You can chat with 5 bots. They are stored in DB and promt to act like a charecter.
@@ -48,3 +49,6 @@ In backend I have 3 api routes:
    npm run dev
    ```
 4. Run server
+
+## Ideas for improvement
+Add virtual scroll for messages to handle chats with a big message history, now it's just a simple list.

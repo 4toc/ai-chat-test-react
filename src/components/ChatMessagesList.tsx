@@ -10,6 +10,7 @@ const ChatMessagesList = () => {
   const messagesListRef = useRef<HTMLDivElement | null>(null);
   const isMessageSending = useAppSelector(state => state.chat.isMessageSending)
   const prevMessagesLengthRef = useRef(0);
+  const isMessagesLoading = useAppSelector(state => state.chat.isMessagesLoading)
 
   useLayoutEffect(() => {
     if (prevMessagesLengthRef.current === 0 && messages.length > 0) {
@@ -28,7 +29,7 @@ const ChatMessagesList = () => {
             {messages.map(message => (
               <ChatMessagesItem key={message.id} message={message}/>
             ))}
-            {isMessageSending && (
+            {isMessageSending || isMessagesLoading && (
               <div>
                 <Loader/>
               </div>

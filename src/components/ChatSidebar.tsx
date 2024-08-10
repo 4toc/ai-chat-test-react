@@ -5,7 +5,7 @@ import {
   AvatarImage
 } from "@/components/ui/avatar.tsx";
 import {useAppSelector, useAppDispatch} from "@/hooks";
-import {fetchMessages, selectChatId} from "@/store";
+import {fetchMessages, selectChatId, resetState} from "@/store";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime)
@@ -28,6 +28,7 @@ export const ChatSidebar = () => {
 
   const handleLogout = () => {
     logOut()
+    dispatch(resetState())
   }
 
   return (

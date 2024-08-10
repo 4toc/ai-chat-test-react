@@ -39,11 +39,9 @@ export default function AuthLayout() {
             <div className="relative z-20 mt-auto">
               <blockquote className="space-y-2">
                 <p className="text-lg">
-                  &ldquo;This library has saved me countless hours of work and
-                  helped me deliver stunning designs to my clients faster than
-                  ever before.&rdquo;
+                  &ldquo;Rome wasn't built in a day, but they were laying bricks every hour.&rdquo;
                 </p>
-                <footer className="text-sm">Sofia Davis</footer>
+                <footer className="text-sm">John Heywood</footer>
               </blockquote>
             </div>
           </div>

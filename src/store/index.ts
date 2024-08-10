@@ -67,6 +67,14 @@ const chatSlice = createSlice({
           createdAt: new Date().toISOString()
         }
       }
+    },
+    resetState: (state) => {
+      state.selectedChatId = ''
+      state.chatPreviewList = []
+      state.isChatPreviewListLoading = false
+      state.messages = []
+      state.isMessagesLoading = false
+      state.isMessageSending = false
     }
   },
   extraReducers: (builder) => {
@@ -113,6 +121,7 @@ export const {
   selectChatId,
   pushMessage,
   updatePreviewLastMessage,
+  resetState,
 } = chatSlice.actions;
 
 export const store = configureStore({

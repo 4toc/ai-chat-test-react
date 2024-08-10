@@ -29,7 +29,7 @@ const ChatMessagesList = () => {
             {messages.map(message => (
               <ChatMessagesItem key={message.id} message={message}/>
             ))}
-            {isMessageSending || isMessagesLoading && (
+            {(isMessageSending || isMessagesLoading) && (
               <div>
                 <Loader/>
               </div>
